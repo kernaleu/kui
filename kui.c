@@ -168,6 +168,7 @@ void initkui()
     termsize();
     cursvis(0);
     echo(0);
+    putsnn(CSI"?1049h");
     cursmv(0, 0);
     clear();
 }
@@ -180,6 +181,7 @@ void endkui()
     signal(SIGWINCH, SIG_IGN);
     tcsetattr(0, TCSAFLUSH, &old_attr);
     putchar('\n');
+    putsnn(CSI"?1049l");
 }
 
 
